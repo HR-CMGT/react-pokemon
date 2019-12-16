@@ -25,9 +25,7 @@ async loadPokemon() {
 
 ## Lokale JSON
 
-Om te testen kan het handig zijn een API result even als lokaal `.json` bestand op te slaan. 
-
-Als je geen verbinding kan maken met [https://pokeapi.co](https://pokeapi.co) dan kan je de twee lokale JSON files gebruiken om te testen.
+Om te testen kan het handig zijn een API result even als lokaal `.json` bestand op te slaan. Als je geen verbinding kan maken met [https://pokeapi.co](https://pokeapi.co) dan kan je de "pokemon.json" en "ditto.json" gebruiken om te testen.
 
 ## Button
 
@@ -66,14 +64,7 @@ render(){
 
 ## Pokemon url doorgeven aan Card
 
-Als je props ontvangt in een component, dan moet je dat in de constructor aangeven. Maar je mag nog wel steeds de hele constructor weg laten.
-```
-constructor(props){
-    super(props)
-}
-```
-
-Via props kan je een waarde doorgeven aan een card
+Via **Props** kan je een waarde doorgeven aan een card
 
 POKEDEX.JS
 ```
@@ -88,6 +79,15 @@ Als je de Card in een For loop aanmaakt, dan kan je de variabele uit de for loop
 let thumbs = this.state.pokemon.map((pokemon, i) =>
     <Card key={i} name={pokemon.name} />
 )
+```
+
+Let op, als je props ontvangt in een component, dan moet je dat in de constructor aangeven. Maar je mag nog wel steeds de hele constructor weg laten.
+
+CARD.JS
+```
+constructor(props){
+    super(props)
+}
 ```
 
 ## Plaatjes renderen via state
