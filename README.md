@@ -20,6 +20,18 @@ async loadPokemon() {
 } 
 ```
 
+## Lokale JSON
+
+Om te testen kan het handig zijn een API result even als lokaal `.json` bestand op te slaan. 
+
+Als je geen verbinding kan maken met [https://pokeapi.co](https://pokeapi.co) dan kan je de twee lokale JSON files gebruiken om te testen.
+
+## Button
+
+```
+<button onClick={() => this.loadPokemon()}>Load next 9 Pokémon</button >
+```
+
 ## De volgende 9 pokemon laden
 
 De pokedex kan bijhouden welke 9 pokemon we geladen hebben. Dit hoeft geen onderdeel van de state te zijn, omdat we dit nergens in de UI tonen. Je kan de offset ophogen als je op de knop hebt gedrukt.
@@ -32,12 +44,6 @@ constructor(){
 async loadPokemon() {
     const url = `https://pokeapi.co/api/v2/pokemon?offset=${this.offset}&limit=9`
 } 
-```
-
-## Button
-
-```
-<button onClick={() => this.loadPokemon()}>Load next 9 Pokémon</button >
 ```
 
 ## Componenten renderen in for loop
@@ -54,20 +60,8 @@ render(){
 }
 ```
 
-## Plaatjes in de state
 
-[Bekijk de data van een Pokemon](https://pokeapi.co/api/v2/pokemon/ditto). De pokemon JSON data heeft een image: `sprites.front_default`. Dit kan je in de state zetten:
-
-```
-this.setState({image : json.sprites.front_default})
-```
-
-In de render functie kan je het image als volgt tonen:
-```
-<img src={this.state.image} />
-```
-
-# Props
+## Pokemon url doorgeven aan Card
 
 Als je props ontvangt in een component, dan moet je dat in de constructor aangeven. Maar je mag nog wel steeds de hele constructor weg laten.
 ```
@@ -75,8 +69,6 @@ constructor(props){
     super(props)
 }
 ```
-
-## Waarde doorgeven aan Card
 
 Via props kan je een waarde doorgeven aan een card
 
@@ -94,6 +86,23 @@ let thumbs = this.state.pokemon.map((pokemon, i) =>
     <Card key={i} name={pokemon.name} />
 )
 ```
+
+## Plaatjes renderen via state
+
+[Bekijk de data van een Pokemon](https://pokeapi.co/api/v2/pokemon/ditto). De pokemon JSON data heeft een image: `sprites.front_default`. Dit kan je in de state zetten:
+
+```
+this.setState({image : json.sprites.front_default})
+```
+
+In de render functie kan je het image als volgt tonen:
+```
+<img src={this.state.image} />
+```
+
+# Caught Pokemon Button
+
+De "caught" button zit in een card component. Maar de "caught" state zit in het Pokedex component. We hebben Props nodig om vanuit de Card een functie van de Pokedex aan te roepen.
 
 ## Functie doorgeven aan Card
 
@@ -123,8 +132,3 @@ catchPokemon() {
 }
 ```
 
-## Lokale JSON
-
-Om te testen kan het handig zijn een API result even als lokaal `.json` bestand op te slaan. 
-
-Als je geen verbinding kan maken met [https://pokeapi.co](https://pokeapi.co) dan kan je de twee lokale JSON files gebruiken om te testen.
