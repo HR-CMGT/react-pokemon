@@ -6,6 +6,9 @@ In deze workshop gaan we het volgende doen:
 - Het POKEDEX component maakt voor elke pokemon in de JSON een nieuw CARD component.
 - Het CARD component laadt detail info over de pokemon
 - De blauwe knop laadt telkens de volgende 9 pokemon
+
+## Bonus
+
 - In de CARD zit een "catch" knop, deze update de "caught" state van het POKEDEX component.
 
 ## JSON laden 
